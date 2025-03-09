@@ -8,8 +8,9 @@ class AppElevatedButtonTheme {
       ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           elevation: 0.0,
-          foregroundColor: Color(0xFF1E1E1E),
-          backgroundColor: Colors.white,
+          backgroundColor: Color(0xFF1E1E1E),
+          foregroundColor: Colors.white,
+          textStyle: TextStyle(color: Colors.white),
           iconColor: Color(0xFF1E1E1E),
           disabledBackgroundColor: Colors.grey,
           disabledForegroundColor: Colors.white,
@@ -28,8 +29,10 @@ class AppElevatedButtonTheme {
       ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           elevation: 0.0,
-          backgroundColor: Color(0xFF1E1E1E),
-          foregroundColor: Colors.white,
+          textStyle: TextStyle(color: Color(0xFF1E1E1E)),
+
+          foregroundColor: Color(0xFF1E1E1E),
+          backgroundColor: Colors.white,
           iconColor: Colors.white,
           disabledBackgroundColor: Colors.grey,
           disabledForegroundColor: Colors.white,
@@ -38,7 +41,7 @@ class AppElevatedButtonTheme {
           iconAlignment: IconAlignment.start,
           padding: EdgeInsets.symmetric(horizontal: 19),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(17),
+            borderRadius: BorderRadius.circular(19),
           ),
         ),
       );

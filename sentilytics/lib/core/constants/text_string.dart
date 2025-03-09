@@ -10,6 +10,7 @@ class TextString {
   // ======================================== AUTHENTICATION =================================================
   static String signInAppBarTitle = 'Sign In';
   static String signUpAppBarTitle = 'Sign Up';
+  static String forgotAppBarTitle = 'Forgot';
   static String signInButtonText = 'Sign In';
   static String signUpButtonText = 'Sign Up';
   static String emailLabelText = 'Enter your email';
@@ -22,7 +23,7 @@ class TextString {
   static String guestButtonText = 'Continue as Guest';
   static String passwordScreenText =
       'Don\'t worry! it happens. Please enter your email associated with your account';
-  static String getOtpButtonText = 'Get Link';
+  static String forgotButtonLink = 'Get Link';
   
 
 

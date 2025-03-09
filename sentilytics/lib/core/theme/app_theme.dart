@@ -1,9 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sentilytics/core/theme/app_action_icon_theme.dart';
 import 'package:sentilytics/core/theme/app_elevated_button_theme.dart';
 import 'package:sentilytics/core/theme/app_input_decoration_theme.dart';
+import 'package:sentilytics/core/theme/app_text_theme.dart';
 import 'package:sentilytics/core/theme/custom_app_bar_theme.dart';
 
 class AppTheme {
@@ -13,7 +13,6 @@ class AppTheme {
     primaryColor: Color(0xFF1E1E1E),
     scaffoldBackgroundColor: Colors.white,
     dividerColor: Colors.grey,
-    colorSchemeSeed: Color(0xFF1E1E1E),
     useMaterial3: true,
     colorScheme: const ColorScheme.light(
       primary: Color(0xFF1E1E1E),
@@ -29,6 +28,8 @@ class AppTheme {
     elevatedButtonTheme: AppElevatedButtonTheme.lightElevatedButtonTheme,
     inputDecorationTheme: AppInputDecorationTheme.lightInputDecorationTheme,
     actionIconTheme: AppActionIconTheme.lightActionIconTheme,
+    textTheme: AppTextTheme.lightTextTheme,
+    
   );
 
   // Dark Theme
@@ -36,7 +37,6 @@ class AppTheme {
     brightness: Brightness.dark,
     primaryColor: Colors.white,
     scaffoldBackgroundColor: Color(0xFF1E1E1E),
-    colorSchemeSeed: Colors.white,
     dividerColor: Colors.grey,
     useMaterial3: true,
     colorScheme: const ColorScheme.dark(
@@ -52,5 +52,6 @@ class AppTheme {
     elevatedButtonTheme: AppElevatedButtonTheme.darkElevatedButtonTheme,
     inputDecorationTheme: AppInputDecorationTheme.lightInputDecorationTheme,
     actionIconTheme: AppActionIconTheme.darkActionIconTheme,
+    textTheme: AppTextTheme.darkTextTheme,
   );
 }
