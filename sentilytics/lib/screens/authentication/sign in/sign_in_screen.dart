@@ -3,8 +3,6 @@ import 'package:go_router/go_router.dart';
 import 'package:sentilytics/core/constants/image_string.dart';
 import 'package:sentilytics/core/constants/text_string.dart';
 import 'package:sentilytics/routes/app_router_constant.dart';
-import 'package:sentilytics/screens/authentication/forgot%20password/forgot_password_screen.dart';
-import 'package:sentilytics/screens/authentication/sign%20up/sign_up_screen.dart';
 import 'package:sentilytics/widget/auth_button.dart';
 import 'package:sentilytics/widget/auth_rich_text.dart';
 import 'package:sentilytics/widget/auth_text_form_field.dart';

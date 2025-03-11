@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sentilytics/core/constants/image_string.dart';
 import 'package:sentilytics/core/constants/text_string.dart';

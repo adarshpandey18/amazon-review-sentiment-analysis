@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "770909967004",
+    "project_id": "sentilytics-app",
+    "storage_bucket": "sentilytics-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:770909967004:android:4d0d9e6a51bd5254d69359",
+        "android_client_info": {
+          "package_name": "com.example.sentilytics"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "770909967004-bcjidh8il8mce5hs6j8rteaq7j0mmb6b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLCuS3wR8Hle5Z1c9bhpiWbZnOJVqYNUg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "770909967004-bcjidh8il8mce5hs6j8rteaq7j0mmb6b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

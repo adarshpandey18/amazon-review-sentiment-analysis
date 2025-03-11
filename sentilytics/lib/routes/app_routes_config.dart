@@ -8,7 +8,7 @@ import 'package:sentilytics/screens/authentication/sign%20up/sign_up_screen.dart
 class AppRoutesConfig {
   static final GoRouter goRouter = GoRouter(
     initialLocation: AppRouterConstant.signInRoutePath,
-    errorBuilder: (context, state) => Container(child: Text('Hello')),
+    errorBuilder: (context, state) => Text('Hello'),
     routes: [
       GoRoute(
         path: AppRouterConstant.signInRoutePath,

@@ -1,10 +1,13 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:sentilytics/core/constants/text_string.dart';
 import 'package:sentilytics/core/theme/app_theme.dart';
+import 'package:sentilytics/firebase_options.dart';
 import 'package:sentilytics/routes/app_routes_config.dart';
-import 'package:sentilytics/screens/authentication/sign%20in/sign_in_screen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
