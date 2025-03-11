@@ -19,11 +19,7 @@ class ImageButton extends StatelessWidget {
       width: double.infinity,
       child: ElevatedButton.icon(
         onPressed: onTap,
-        icon: SizedBox(
-          height: 42,
-          width: 42,
-          child: Lottie.network(url, width: 42, height: 42, repeat: true),
-        ),
+        icon: Lottie.network(url, width: 28, height: 28, repeat: true),
         label: Text(
           buttonText,
           style: Theme.of(context).textTheme.bodyMedium?.copyWith(
@@ -31,12 +27,13 @@ class ImageButton extends StatelessWidget {
           ),
         ),
         style: ElevatedButton.styleFrom(
-          padding: const EdgeInsets.symmetric(vertical: 15),
+          padding: const EdgeInsets.symmetric(vertical: 19),
           backgroundColor: Colors.transparent,
           shape: RoundedRectangleBorder(
             side: BorderSide(color: Colors.grey),
             borderRadius: BorderRadius.circular(17.6),
           ),
+          shadowColor: Colors.transparent,
         ),
       ),
     );

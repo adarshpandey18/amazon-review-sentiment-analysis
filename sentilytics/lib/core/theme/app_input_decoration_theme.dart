@@ -64,7 +64,7 @@ class AppInputDecorationTheme {
     // Default border
     border: OutlineInputBorder(
       borderRadius: BorderRadius.circular(17.6),
-      borderSide: const BorderSide(color: Colors.grey),
+      borderSide: const BorderSide(color: Colors.white),
     ),
 
     // Enabled border
@@ -76,13 +76,13 @@ class AppInputDecorationTheme {
     // Focused border (when field is clicked)
     focusedBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(17.6),
-      borderSide: BorderSide(color: Colors.grey.shade300, width: 1.5),
+      borderSide: BorderSide(color: Colors.white, width: 1.5),
     ),
 
     // Disabled border
     disabledBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(17.6),
-      borderSide: const BorderSide(color: Colors.grey),
+      borderSide: const BorderSide(color: Colors.white),
     ),
 
     // Error border (when validation fails)
@@ -103,7 +103,8 @@ class AppInputDecorationTheme {
 
     // Hint, error, and focus colors
     errorStyle: const TextStyle(color: Colors.redAccent),
-    hintStyle: TextStyle(color: Colors.grey.shade400),
-    focusColor: Colors.grey.shade100,
+    hintStyle: TextStyle(color: Colors.white),
+    focusColor: Colors.white,
+    
   );
 }

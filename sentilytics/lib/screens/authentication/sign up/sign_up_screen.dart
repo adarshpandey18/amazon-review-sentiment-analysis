@@ -1,39 +1,42 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:sentilytics/core/constants/image_string.dart';
 import 'package:sentilytics/core/constants/text_string.dart';
-import 'package:sentilytics/routes/app_router_constant.dart';
-import 'package:sentilytics/screens/authentication/forgot%20password/forgot_password_screen.dart';
-import 'package:sentilytics/screens/authentication/sign%20up/sign_up_screen.dart';
 import 'package:sentilytics/widget/auth_button.dart';
 import 'package:sentilytics/widget/auth_rich_text.dart';
 import 'package:sentilytics/widget/auth_text_form_field.dart';
 import 'package:sentilytics/widget/image_button.dart';
 
-class SignInScreen extends StatefulWidget {
-  const SignInScreen({super.key});
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
 
   @override
-  State<SignInScreen> createState() => _SignInScreenState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _SignInScreenState extends State<SignInScreen> {
+class _SignUpScreenState extends State<SignUpScreen> {
+  late TextEditingController _nameTextController;
   late TextEditingController _emailTextController;
   late TextEditingController _passwordTextController;
+  late TextEditingController _rePasswordTextController;
   late GlobalKey<FormState> _formKey;
 
   @override
   void initState() {
+    _nameTextController = TextEditingController();
     _emailTextController = TextEditingController();
     _passwordTextController = TextEditingController();
+    _rePasswordTextController = TextEditingController();
     _formKey = GlobalKey<FormState>();
     super.initState();
   }
 
   @override
   void dispose() {
+    _nameTextController.dispose();
     _emailTextController.dispose();
     _passwordTextController.dispose();
+    _rePasswordTextController.dispose();
     super.dispose();
   }
 
@@ -42,7 +45,7 @@ class _SignInScreenState extends State<SignInScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          TextString.signInAppBarTitle,
+          TextString.signUpAppBarTitle,
           style: Theme.of(context).textTheme.titleLarge,
         ),
       ),
@@ -56,6 +59,21 @@ class _SignInScreenState extends State<SignInScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  // Name Field
+                  Text(
+                    TextString.nameLabelText,
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                  const SizedBox(height: 9.2),
+                  AuthTextFormField(
+                    controller: _nameTextController,
+                    isEmail: false,
+                    isName: true,
+                    isPassword: false,
+                    prefixIconData: Icons.person,
+                  ),
+                  const SizedBox(height: 18),
+
                   // Email Field
                   Text(
                     TextString.emailLabelText,
@@ -84,32 +102,32 @@ class _SignInScreenState extends State<SignInScreen> {
                     isPassword: true,
                     prefixIconData: Icons.lock,
                   ),
-
-                  // Forgot Password
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: TextButton(
-                      onPressed: () {
-                        context.go(
-                          AppRouterConstant.signInRoutePath +
-                              AppRouterConstant.forgotPasswordRoutePath,
-                        );
-                      },
-                      child: Text(TextString.forgotPasswordText),
-                    ),
+                  const SizedBox(height: 18),
+                  //Re Password Field
+                  Text(
+                    TextString.reEnterPasswordLabelText,
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                  const SizedBox(height: 9.2),
+                  AuthTextFormField(
+                    controller: _rePasswordTextController,
+                    isEmail: false,
+                    isName: false,
+                    isPassword: true,
+                    prefixIconData: Icons.lock,
                   ),
                   const SizedBox(height: 13),
                   AuthButton(
-                    text: TextString.signInButtonText,
+                    text: TextString.signUpButtonText,
                     onTap: () {
                       if (_formKey.currentState!.validate()) {}
                     },
                   ),
                   const SizedBox(height: 13),
                   AuthRichText(
-                    firstText: 'Don\'t have an account? ',
-                    secondText: 'Sign Up',
-                    onTap: () => context.go(AppRouterConstant.signUpRoutePath),
+                    firstText: 'Already have an account? ',
+                    secondText: 'Sign In',
+                    onTap: () {},
                   ),
                   const SizedBox(height: 9.2),
                   Center(

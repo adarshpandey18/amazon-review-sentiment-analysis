@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:sentilytics/core/constants/image_string.dart';
 import 'package:sentilytics/core/constants/text_string.dart';
 import 'package:sentilytics/widget/auth_button.dart';
@@ -45,10 +46,10 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Center(
-                    child: Image.asset(
+                    child: LottieBuilder.network(
                       ImageString.forgotPasswordImagePath,
-                      width: 245,
-                      height: 255,
+                      width: 345,
+                      height: 355,
                     ),
                   ),
                   const SizedBox(height: 72),

@@ -14,12 +14,12 @@ class TextString {
   static String signInButtonText = 'Sign In';
   static String signUpButtonText = 'Sign Up';
   static String emailLabelText = 'Enter your email';
-  static String mobileNumberLabelText = 'Enter your mobile number';
+  static String nameLabelText = 'Enter your name';
   static String passwordLabelText = 'Enter your password';
   static String reEnterPasswordLabelText = 'Re-Enter your password';
   static String forgotPasswordText = 'Forgot Password ?';
   static String googleButtonText = 'Continue with Google';
-  static String appleButtonText = 'Continue with Apple';
+  static String facebookButtonText = 'Continue with Facebook';
   static String guestButtonText = 'Continue as Guest';
   static String passwordScreenText =
       'Don\'t worry! it happens. Please enter your email associated with your account';

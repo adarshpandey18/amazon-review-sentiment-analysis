@@ -7,7 +7,8 @@ class AppActionIconTheme {
   // light action icon theme
   static ActionIconThemeData lightActionIconTheme = ActionIconThemeData(
     backButtonIconBuilder:
-        (context) => const Icon(CupertinoIcons.back, color: Color(0xFF1E1E1E)),
+        (context) =>
+            const Icon(CupertinoIcons.back, color: Color(0xFF1E1E1E), size: 32),
   );
 
   // dark action icon theme

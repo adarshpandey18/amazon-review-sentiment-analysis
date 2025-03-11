@@ -26,6 +26,12 @@ class _AuthTextFormFieldState extends State<AuthTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: (value) {
+        if (value == null || value == '') {
+          return 'Field is Empty';
+        }
+        return null;
+      },
       autocorrect: false,
       controller: widget.controller,
       keyboardType:
@@ -33,8 +39,12 @@ class _AuthTextFormFieldState extends State<AuthTextFormField> {
       cursorOpacityAnimates: true,
       obscureText: widget.isPassword ? !showPassword : false,
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.symmetric(horizontal: 18, vertical: 21),
-        prefixIcon: Icon(widget.prefixIconData, size: 24),
+        contentPadding: EdgeInsets.symmetric(vertical: 19),
+        prefixIcon: Icon(
+          widget.prefixIconData,
+          size: 24,
+          color: Theme.of(context).colorScheme.primary,
+        ),
 
         suffixIcon:
             widget.isPassword
