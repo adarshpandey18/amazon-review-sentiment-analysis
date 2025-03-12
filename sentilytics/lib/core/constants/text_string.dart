@@ -18,13 +18,18 @@ class TextString {
   static String passwordLabelText = 'Enter your password';
   static String reEnterPasswordLabelText = 'Re-Enter your password';
   static String forgotPasswordText = 'Forgot Password ?';
+  static String signInFirstRichText = 'Don\'t have an account? ';
+  static String signUpFirstRichText = 'Already have an account? ';
+  static String signUpSecondRichText = 'Sign In';
+  static String signInSecondRichText = 'Sign Up';
   static String googleButtonText = 'Continue with Google';
   static String facebookButtonText = 'Continue with Facebook';
   static String guestButtonText = 'Continue as Guest';
   static String passwordScreenText =
       'Don\'t worry! it happens. Please enter your email associated with your account';
   static String forgotButtonLink = 'Get Link';
-  
 
-
+  // ======================================== ERROR =================================================
+  static String errorAppBarTitle = 'Error';
+  static String errorText = 'Error 404';
 }

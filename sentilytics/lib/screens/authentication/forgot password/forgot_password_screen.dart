@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:provider/provider.dart';
 import 'package:sentilytics/core/constants/image_string.dart';
 import 'package:sentilytics/core/constants/text_string.dart';
+import 'package:sentilytics/provider/auth_provider.dart';
 import 'package:sentilytics/widget/auth_button.dart';
 import 'package:sentilytics/widget/auth_text_form_field.dart';
+import 'package:top_snackbar_flutter/custom_snack_bar.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({super.key});
@@ -14,10 +18,12 @@ class ForgotPasswordScreen extends StatefulWidget {
 
 class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   late TextEditingController _emailTextController;
+  late GlobalKey<FormState> _formKey;
 
   @override
   void initState() {
     _emailTextController = TextEditingController();
+    _formKey = GlobalKey<FormState>();
     super.initState();
   }
 
@@ -29,6 +35,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final authProvider = Provider.of<AppAuthProvider>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -37,6 +44,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
         ),
       ),
       body: Form(
+        key: _formKey,
         child: Center(
           child: SingleChildScrollView(
             child: Padding(
@@ -75,7 +83,27 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                     prefixIconData: Icons.email_rounded,
                   ),
                   const SizedBox(height: 13),
-                  AuthButton(text: TextString.forgotButtonLink, onTap: () {}),
+                  AuthButton(
+                    text: TextString.forgotButtonLink,
+                    onTap: () async {
+                      if (!_formKey.currentState!.validate()) {
+                        try {
+                          await authProvider.forgotPasswordEmail(
+                            _emailTextController.text,
+                            context,
+                          );
+                          _emailTextController.clear();
+                        } catch (e) {
+                          showTopSnackBar(
+                            Overlay.of(context),
+                            CustomSnackBar.error(
+                              message: 'Sending Email Failed : ${e.toString()}',
+                            ),
+                          );
+                        }
+                      }
+                    },
+                  ),
                 ],
               ),
             ),

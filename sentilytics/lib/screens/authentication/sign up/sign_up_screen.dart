@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 import 'package:sentilytics/core/constants/image_string.dart';
 import 'package:sentilytics/core/constants/text_string.dart';
+import 'package:sentilytics/provider/auth_provider.dart';
+import 'package:sentilytics/routes/app_router_constant.dart';
 import 'package:sentilytics/widget/auth_button.dart';
 import 'package:sentilytics/widget/auth_rich_text.dart';
 import 'package:sentilytics/widget/auth_text_form_field.dart';
 import 'package:sentilytics/widget/image_button.dart';
+import 'package:top_snackbar_flutter/custom_snack_bar.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -41,6 +47,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final authProvider = Provider.of<AppAuthProvider>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -119,14 +126,45 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   AuthButton(
                     text: TextString.signUpButtonText,
                     onTap: () {
-                      if (_formKey.currentState!.validate()) {}
+                      if (_formKey.currentState!.validate()) {
+                        try {
+                          if (_passwordTextController.text !=
+                              _rePasswordTextController.text) {
+                            showTopSnackBar(
+                              Overlay.of(context),
+                              CustomSnackBar.info(
+                                message: 'Password are not same',
+                              ),
+                            );
+                          } else {
+                            authProvider.signUpWithEmail(
+                              _emailTextController.text,
+                              _passwordTextController.text,
+                              context,
+                            );
+                            _nameTextController.text;
+                            _emailTextController.text;
+                            _passwordTextController.text;
+                            _rePasswordTextController;
+                          }
+                        } catch (e) {
+                          showTopSnackBar(
+                            Overlay.of(context),
+                            CustomSnackBar.error(
+                              message: 'Sign Up Failed : ${e.toString()}',
+                            ),
+                          );
+                        }
+                      }
                     },
                   ),
                   const SizedBox(height: 13),
                   AuthRichText(
-                    firstText: 'Already have an account? ',
-                    secondText: 'Sign In',
-                    onTap: () {},
+                    firstText: TextString.signUpFirstRichText,
+                    secondText: TextString.signUpSecondRichText,
+                    onTap: () {
+                      context.go(AppRouterConstant.signInRoutePath);
+                    },
                   ),
                   const SizedBox(height: 9.2),
                   Center(

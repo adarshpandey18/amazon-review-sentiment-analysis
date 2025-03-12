@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 import 'package:sentilytics/core/constants/image_string.dart';
 import 'package:sentilytics/core/constants/text_string.dart';
+import 'package:sentilytics/provider/auth_provider.dart';
 import 'package:sentilytics/routes/app_router_constant.dart';
 import 'package:sentilytics/widget/auth_button.dart';
 import 'package:sentilytics/widget/auth_rich_text.dart';
 import 'package:sentilytics/widget/auth_text_form_field.dart';
 import 'package:sentilytics/widget/image_button.dart';
+import 'package:top_snackbar_flutter/custom_snack_bar.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -37,6 +41,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final authProvider = Provider.of<AppAuthProvider>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -99,14 +104,31 @@ class _SignInScreenState extends State<SignInScreen> {
                   const SizedBox(height: 13),
                   AuthButton(
                     text: TextString.signInButtonText,
-                    onTap: () {
-                      if (_formKey.currentState!.validate()) {}
+                    onTap: () async {
+                      if (_formKey.currentState!.validate()) {
+                        try {
+                          authProvider.signInWithEmail(
+                            _emailTextController.text,
+                            _passwordTextController.text,
+                            context,
+                          );
+                          _emailTextController.clear();
+                          _passwordTextController.clear();
+                        } catch (e) {
+                          showTopSnackBar(
+                            Overlay.of(context),
+                            CustomSnackBar.error(
+                              message: 'Sign In : ${e.toString()}',
+                            ),
+                          );
+                        }
+                      }
                     },
                   ),
                   const SizedBox(height: 13),
                   AuthRichText(
-                    firstText: 'Don\'t have an account? ',
-                    secondText: 'Sign Up',
+                    firstText: TextString.signInFirstRichText,
+                    secondText: TextString.signInSecondRichText,
                     onTap: () => context.go(AppRouterConstant.signUpRoutePath),
                   ),
                   const SizedBox(height: 9.2),
