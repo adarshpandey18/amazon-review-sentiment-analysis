@@ -19,7 +19,9 @@ class AuthErrorDialog {
                   Navigator.pop(context);
                 },
               ),
+
             ],
+            
           ),
     );
   }
