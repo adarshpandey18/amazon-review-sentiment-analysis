@@ -161,7 +161,15 @@ class _SignInScreenState extends State<SignInScreen> {
                       ),
                     ],
                   ),
-                  if (authProvider.isLoading) CupertinoActivityIndicator(),
+                  if (authProvider.isLoading)
+                    Center(
+                      child: Container(
+                        color: Colors.grey.shade100,
+                        child: Center(
+                          child: CupertinoActivityIndicator(radius: 20),
+                        ),
+                      ),
+                    ),
                 ],
               ),
             ),

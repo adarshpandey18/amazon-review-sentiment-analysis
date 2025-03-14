@@ -20,7 +20,12 @@ class AuthService {
     try {
       final UserCredential userCredential = await _auth
           .createUserWithEmailAndPassword(email: email, password: password);
-      context.go(AppRouterConstant.homeRoutePath);
+
+      if (context.mounted) {
+        context.go(AppRouterConstant.bottomAppBarRoutePath);
+      } else {
+        debugPrint('Context is not mounted, cannot navigate.');
+      }
 
       return userCredential;
     } on FirebaseAuthException catch (e) {
@@ -41,7 +46,13 @@ class AuthService {
     try {
       final UserCredential userCredential = await _auth
           .signInWithEmailAndPassword(email: email, password: password);
-      context.go(AppRouterConstant.homeRoutePath);
+
+      if (context.mounted) {
+        context.go(AppRouterConstant.bottomAppBarRoutePath);
+      } else {
+        debugPrint('Context is not mounted, cannot navigate.');
+      }
+
       return userCredential;
     } on FirebaseAuthException catch (e) {
       AuthErrorDialog.showErrorDialog(
@@ -56,13 +67,17 @@ class AuthService {
   Future<void> forgotPasswordEmail(String email, BuildContext context) async {
     try {
       await _auth.sendPasswordResetEmail(email: email);
-      showTopSnackBar(
-        Overlay.of(context),
-        CustomSnackBar.info(
-          message: TextString.forgotPasswordSnackbarText,
-          backgroundColor: Theme.of(context).colorScheme.secondary,
-        ),
-      );
+      if (context.mounted) {
+        showTopSnackBar(
+          Overlay.of(context),
+          CustomSnackBar.info(
+            message: TextString.forgotPasswordSnackbarText,
+            backgroundColor: Theme.of(context).colorScheme.secondary,
+          ),
+        );
+      } else {
+        debugPrint('Context is not mounted, cannot show snackbar.');
+      }
     } on FirebaseAuthException catch (e) {
       AuthErrorDialog.showErrorDialog(
         context,

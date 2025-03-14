@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CompareScreen extends StatelessWidget {
@@ -6,6 +5,6 @@ class CompareScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Center(child: Text('Compare')));
+    return  Center(child: Text('Compare'));
   }
 }

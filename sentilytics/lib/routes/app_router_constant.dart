@@ -9,6 +9,7 @@ class AppRouterConstant {
   static final String compareRouteName = 'Compare';
   static final String historyRouteName = 'History';
   static final String profileRouteName = 'Profile';
+  static final String bottomAppBarRouteName = 'BottomAppBar';
 
   // Route paths
   static final String signInRoutePath = '/signIn';
@@ -19,4 +20,5 @@ class AppRouterConstant {
   static final String compareRoutePath = '/compare';
   static final String historyRoutePath = '/history';
   static final String profileRoutePath = '/profile';
+  static final String bottomAppBarRoutePath = '/bottomAppBar';
 }

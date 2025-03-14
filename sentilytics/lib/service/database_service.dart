@@ -41,4 +41,21 @@ class DatabaseService {
       );
     }
   }
+
+  Future<String?> getName(String uid, BuildContext context) async {
+    try {
+      var docSnapshot = await _firestore.collection('users').doc(uid).get();
+      if (docSnapshot.exists) {
+        var name = docSnapshot.data()?['name'];
+        return name;
+      } else {
+        return 'User';
+      }
+    } on FirebaseException catch (e) {
+      AuthErrorDialog.showErrorDialog(
+        context,
+        e.message ?? "Error upgrading user.",
+      );
+    }
+  }
 }

@@ -5,6 +5,7 @@ import 'package:sentilytics/core/constants/text_string.dart';
 import 'package:sentilytics/core/theme/app_theme.dart';
 import 'package:sentilytics/firebase_options.dart';
 import 'package:sentilytics/provider/auth_provider.dart';
+import 'package:sentilytics/provider/db_provider.dart';
 import 'package:sentilytics/routes/app_routes_config.dart';
 
 void main() async {
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => AppAuthProvider()),
+        ChangeNotifierProvider(create: (context) => DbProvider()),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
