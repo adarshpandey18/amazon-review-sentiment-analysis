@@ -86,7 +86,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                   AuthButton(
                     text: TextString.forgotButtonLink,
                     onTap: () async {
-                      if (!_formKey.currentState!.validate()) {
+                      if (_formKey.currentState!.validate()) {
                         try {
                           await authProvider.forgotPasswordEmail(
                             _emailTextController.text,

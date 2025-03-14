@@ -138,6 +138,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             );
                           } else {
                             authProvider.signUpWithEmail(
+                              _nameTextController.text,
                               _emailTextController.text,
                               _passwordTextController.text,
                               context,

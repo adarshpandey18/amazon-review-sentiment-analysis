@@ -18,6 +18,7 @@ class TextString {
   static String passwordLabelText = 'Enter your password';
   static String reEnterPasswordLabelText = 'Re-Enter your password';
   static String forgotPasswordText = 'Forgot Password ?';
+  static String forgotPasswordSnackbarText = 'Email is on the way!';
   static String signInFirstRichText = 'Don\'t have an account? ';
   static String signUpFirstRichText = 'Already have an account? ';
   static String signUpSecondRichText = 'Sign In';
