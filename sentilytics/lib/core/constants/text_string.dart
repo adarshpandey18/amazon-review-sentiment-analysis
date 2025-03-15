@@ -33,4 +33,6 @@ class TextString {
   // ======================================== ERROR =================================================
   static String errorAppBarTitle = 'Error';
   static String errorText = 'Error 404';
+  // ======================================== HOME =================================================
+  static String homeGreetingText = 'Hey,';
 }

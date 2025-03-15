@@ -13,4 +13,9 @@ class DbProvider extends ChangeNotifier {
     }
     notifyListeners();
   }
+
+  upgradeUserToPremium(String uid, BuildContext context) async {
+    await _dbService.upgradeUserToPremium(uid, context);
+    notifyListeners();
+  }
 }

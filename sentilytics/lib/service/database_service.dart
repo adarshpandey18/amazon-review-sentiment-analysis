@@ -57,5 +57,6 @@ class DatabaseService {
         e.message ?? "Error upgrading user.",
       );
     }
+    return null;
   }
 }

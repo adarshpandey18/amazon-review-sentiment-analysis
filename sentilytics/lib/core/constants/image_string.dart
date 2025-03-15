@@ -5,6 +5,8 @@ class ImageString {
   static String basePath = 'assets/images/';
   // logo path
   static String logoPath = '${basePath}logo.png';
+  // base path animation
+  static String basePathAnimation = 'assets/animation/';
 
   // ======================================== AUTHENTICATION ===============================================
   static String forgotPasswordImagePath =
@@ -13,4 +15,7 @@ class ImageString {
       'https://lottie.host/b4bba571-6727-4f54-85dd-4ba6dc9593d3/xZ5G5JrBcv.json';
   static String googleButtonImageLink =
       'https://lottie.host/53d57f71-9d2e-4749-9677-b8adba99572c/XZcUS9VCIO.json';
+
+  // ==================================== HOME ===========================
+  static String homeAnimation = '${basePathAnimation}building_block.json';
 }
