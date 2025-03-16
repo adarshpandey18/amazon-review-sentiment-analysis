@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class GetPremiumButton extends StatelessWidget {
   const GetPremiumButton({super.key, required this.onTap});
-  final Future<void> Function() onTap;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -12,9 +12,7 @@ class GetPremiumButton extends StatelessWidget {
         color: Theme.of(context).colorScheme.secondary,
       ),
       label: Text('Get Premium'),
-      onPressed: () async {
-        await onTap();
-      },
+      onPressed: onTap,
     );
   }
 }

@@ -151,7 +151,9 @@ class _SignInScreenState extends State<SignInScreen> {
                       ImageButton(
                         url: ImageString.googleButtonImageLink,
                         buttonText: TextString.googleButtonText,
-                        onTap: () {},
+                        onTap: () {
+                          authProvider.signInWithGoogle(context);
+                        },
                       ),
                       const SizedBox(height: 13),
                       ImageButton(
@@ -162,14 +164,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     ],
                   ),
                   if (authProvider.isLoading)
-                    Center(
-                      child: Container(
-                        color: Colors.grey.shade100,
-                        child: Center(
-                          child: CupertinoActivityIndicator(radius: 20),
-                        ),
-                      ),
-                    ),
+                    Center(child: Center(child: CupertinoActivityIndicator())),
                 ],
               ),
             ),

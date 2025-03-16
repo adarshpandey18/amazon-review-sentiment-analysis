@@ -59,4 +59,25 @@ class DatabaseService {
     }
     return null;
   }
+
+  Future<bool> checkUserStatus(String uid, BuildContext context) async {
+    try {
+      var docSnapshot = await _firestore.collection('users').doc(uid).get();
+      if (docSnapshot.exists) {
+        bool? data = docSnapshot.data()?['premiumUser'];
+        if (data == null) {
+          return true;
+        } else {
+          return data;
+        }
+      }
+      return false;
+    } on FirebaseException catch (e) {
+      AuthErrorDialog.showErrorDialog(
+        context,
+        e.message ?? 'Error checking user status',
+      );
+      return false;
+    }
+  }
 }

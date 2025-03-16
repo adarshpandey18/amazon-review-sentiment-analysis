@@ -55,6 +55,25 @@ class AppAuthProvider extends ChangeNotifier {
     return userCredential;
   }
 
+  // Sign Up User With Email
+  Future<UserCredential?> signInWithGoogle(BuildContext context) async {
+    isLoading = true;
+    notifyListeners();
+    final userCredential = await _authService.signInWithGoogle(context);
+
+    await _dbService.saveUserData(
+      userCredential!.user!.uid,
+      userCredential.user!.displayName ?? 'Google User',
+      userCredential.user!.email ?? 'google.com',
+      false,
+      context,
+    );
+
+    isLoading = false;
+    notifyListeners();
+    return userCredential;
+  }
+
   // Send Forgot Password Email
   Future<void> forgotPasswordEmail(String email, BuildContext context) async {
     await _authService.forgotPasswordEmail(email, context);

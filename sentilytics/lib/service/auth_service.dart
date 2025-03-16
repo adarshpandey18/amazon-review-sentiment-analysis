@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:sentilytics/core/constants/text_string.dart';
 import 'package:sentilytics/routes/app_router_constant.dart';
 import 'package:sentilytics/widget/auth_error_dialog.dart';
@@ -53,6 +54,27 @@ class AuthService {
       }
 
       return userCredential;
+    } on FirebaseAuthException catch (e) {
+      AuthErrorDialog.showErrorDialog(
+        context,
+        e.message ?? "An unknown error occurred.",
+      );
+      return null;
+    }
+  }
+
+  // Google Sign In
+  Future<UserCredential?> signInWithGoogle(BuildContext context) async {
+    try {
+      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+      final GoogleSignInAuthentication? googleAuth =
+          await googleUser?.authentication;
+      final credential = GoogleAuthProvider.credential(
+        
+        accessToken: googleAuth?.accessToken,
+        idToken: googleAuth?.idToken,
+      );
+      return await FirebaseAuth.instance.signInWithCredential(credential);
     } on FirebaseAuthException catch (e) {
       AuthErrorDialog.showErrorDialog(
         context,
