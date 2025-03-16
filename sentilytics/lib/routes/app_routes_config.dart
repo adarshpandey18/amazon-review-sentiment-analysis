@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:sentilytics/routes/app_router_constant.dart';
+import 'package:sentilytics/screens/authentication/auth_wrapper.dart';
 import 'package:sentilytics/screens/authentication/forgot%20password/forgot_password_screen.dart';
 import 'package:sentilytics/screens/authentication/sign%20in/sign_in_screen.dart';
 import 'package:sentilytics/screens/authentication/sign%20up/sign_up_screen.dart';
@@ -8,9 +9,14 @@ import 'package:sentilytics/screens/error/app_error_screen.dart';
 
 class AppRoutesConfig {
   static final GoRouter goRouter = GoRouter(
-    initialLocation: AppRouterConstant.signInRoutePath,
+    initialLocation: AppRouterConstant.authWrapperRoutePath,
     errorBuilder: (context, state) => AppErrorScreen(),
     routes: [
+      GoRoute(
+        path: AppRouterConstant.authWrapperRoutePath,
+        name: AppRouterConstant.authWrapperRoutePath,
+        builder: (context, state) => AuthWrapper(),
+      ),
       GoRoute(
         path: AppRouterConstant.signInRoutePath,
         name: AppRouterConstant.signInRouteName,

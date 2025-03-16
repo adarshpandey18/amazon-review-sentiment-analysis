@@ -35,4 +35,5 @@ class TextString {
   static String errorText = 'Error 404';
   // ======================================== HOME =================================================
   static String homeGreetingText = 'Hey,';
+  static String homeLinkButtonText = 'Get Analysis';
 }

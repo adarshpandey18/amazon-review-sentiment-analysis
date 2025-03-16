@@ -1,6 +1,7 @@
 class AppRouterConstant {
   AppRouterConstant._();
   // Route names
+  static final String authWrapperRouteName = 'AuthWrapper';
   static final String signInRouteName = 'SignIn';
   static final String signUpRouteName = 'SignUp';
   static final String forgotPasswordRouteName = 'ForgotPassword';
@@ -12,6 +13,7 @@ class AppRouterConstant {
   static final String bottomAppBarRouteName = 'BottomAppBar';
 
   // Route paths
+  static final String authWrapperRoutePath = '/authWrapper';
   static final String signInRoutePath = '/signIn';
   static final String signUpRoutePath = '/signUp';
   static final String forgotPasswordRoutePath = '/forgotPassword';
