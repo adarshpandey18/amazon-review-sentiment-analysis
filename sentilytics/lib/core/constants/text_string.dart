@@ -36,4 +36,21 @@ class TextString {
   // ======================================== HOME =================================================
   static String homeGreetingText = 'Hey,';
   static String homeLinkButtonText = 'Get Analysis';
+  // ======================================= COMPARE ===============================================
+  static String compareFirstText = 'Compare Product';
+  static String compareSecondText = 'Side by Side';
+  static String firstProductText = 'Enter first product link';
+  static String secondProductText = 'Enter second product link';
+  static String compareProductButtonText = 'Compare Products';
+  // ======================================= HISTORY ===============================================
+  static String historyTitle = 'History';
+  // ======================================= PROFILE ===============================================
+  static String profileTitle = 'Profile';
+  static String changeNameText = 'Change Name';
+  static String changePasswordText = 'Change Password';
+  static String upgradeUserStatusText = 'Get Premium';
+  static String aboutText = 'About';
+  static String helpText = 'Help';
+  static String shareAppText = 'Share App';
+  static String signOutText = 'Sign Out';
 }

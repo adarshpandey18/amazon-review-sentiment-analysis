@@ -10,9 +10,9 @@ class HistoryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _dbProvider = Provider.of<DbProvider>(context);
+    final dbProvider = Provider.of<DbProvider>(context);
     return FutureBuilder(
-      future: _dbProvider.checkUserStatus(
+      future: dbProvider.checkUserStatus(
         FirebaseAuth.instance.currentUser!.uid,
         context,
       ),
@@ -21,16 +21,16 @@ class HistoryScreen extends StatelessWidget {
           return Center(child: CupertinoActivityIndicator());
         }
         if (snapshot.hasError) {
-          return Icon(Icons.error); // Error handling
+          return Icon(Icons.error);
         }
         bool isPremium = snapshot.data ?? false;
 
         return isPremium
-            ? Center(child: Text('Compare'))
+            ? Center(child: Text('History'))
             : Center(
               child: GetPremiumButton(
                 onTap: () {
-                  _dbProvider.upgradeUserToPremium(
+                  dbProvider.upgradeUserToPremium(
                     FirebaseAuth.instance.currentUser!.uid,
                     context,
                   );

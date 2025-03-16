@@ -15,7 +15,7 @@ class AppErrorScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: [Text('Error 404')],
+              children: [Text(TextString.errorText)],
             ),
           ),
         ),

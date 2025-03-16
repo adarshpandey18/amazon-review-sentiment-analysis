@@ -2,18 +2,18 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sentilytics/core/constants/text_string.dart';
 import 'package:sentilytics/provider/db_provider.dart';
 import 'package:sentilytics/widget/get_premium_button.dart';
-import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 
 class CompareScreen extends StatelessWidget {
   const CompareScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final _dbProvider = Provider.of<DbProvider>(context);
+    final dbProvider = Provider.of<DbProvider>(context);
     return FutureBuilder(
-      future: _dbProvider.checkUserStatus(
+      future: dbProvider.checkUserStatus(
         FirebaseAuth.instance.currentUser!.uid,
         context,
       ),
@@ -27,11 +27,29 @@ class CompareScreen extends StatelessWidget {
         bool isPremium = snapshot.data ?? false;
 
         return isPremium
-            ? Center(child: Text('Compare'))
+            ? Column(
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      TextString.compareFirstText,
+                      style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                        fontWeight: FontWeight.normal,
+                      ),
+                    ),
+                    Text(
+                      TextString.compareSecondText,
+                      style: Theme.of(context).textTheme.titleLarge,
+                    ),
+                  ],
+                ),
+              ],
+            )
             : Center(
               child: GetPremiumButton(
                 onTap: () {
-                  _dbProvider.upgradeUserToPremium(
+                  dbProvider.upgradeUserToPremium(
                     FirebaseAuth.instance.currentUser!.uid,
                     context,
                   );

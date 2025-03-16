@@ -70,7 +70,6 @@ class AuthService {
       final GoogleSignInAuthentication? googleAuth =
           await googleUser?.authentication;
       final credential = GoogleAuthProvider.credential(
-        
         accessToken: googleAuth?.accessToken,
         idToken: googleAuth?.idToken,
       );
@@ -111,6 +110,7 @@ class AuthService {
   Future<void> signOut(BuildContext context) async {
     try {
       await _auth.signOut();
+      context.go(AppRouterConstant.signInRoutePath);
     } on FirebaseAuthException catch (e) {
       AuthErrorDialog.showErrorDialog(
         context,
