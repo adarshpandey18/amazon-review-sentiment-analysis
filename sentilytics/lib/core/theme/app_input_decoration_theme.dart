@@ -24,7 +24,7 @@ class AppInputDecorationTheme {
     // Focused border (when field is clicked)
     focusedBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(17.6),
-      borderSide: const BorderSide(color: Colors.black, width: 1.5),
+      borderSide: const BorderSide(color: Color(0xFF1E1E1E), width: 1.5),
     ),
 
     // Disabled border
@@ -105,6 +105,5 @@ class AppInputDecorationTheme {
     errorStyle: const TextStyle(color: Colors.redAccent),
     hintStyle: TextStyle(color: Colors.white),
     focusColor: Colors.white,
-    
   );
 }
