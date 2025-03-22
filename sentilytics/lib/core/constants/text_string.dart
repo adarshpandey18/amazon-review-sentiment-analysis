@@ -56,6 +56,10 @@ class TextString {
   static String profileShareAppText = 'Share App';
   static String profileSignOutText = 'Sign Out';
 
+  // ==================================== CHANGE PASSWORD =============================================
+  static String currentPasswordLabel = 'Enter your current password';
+  static String newPasswordLabel = 'Enter your new password';
+  static String changePasswordButtonText = 'Change Password';
   // ===================================== UTILS ==================================================
   static String urlLaunchErrorMessage = 'Unable to launch the link';
 }

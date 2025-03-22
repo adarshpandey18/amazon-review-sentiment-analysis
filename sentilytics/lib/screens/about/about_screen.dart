@@ -8,6 +8,7 @@ class AboutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Text(TextString.profileAboutText)),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 38),
         child: Column(

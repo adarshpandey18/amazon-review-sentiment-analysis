@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
@@ -42,22 +41,23 @@ class ProfileScreen extends StatelessWidget {
                   listTitleText: TextString.profileChangeNameText,
                   onTap: () {},
                 ),
-                const SizedBox(height: 5),
+                const SizedBox(height: 7),
                 CustomListTile(
                   changeColor: false,
                   leadingIcon: Icons.lock,
                   listTitleText: TextString.profileChangePasswordText,
-                  onTap: () {},
+                  onTap: () {
+                    context.go(AppRouterConstant.changePasswordRoutePath);
+                  },
                 ),
-                const SizedBox(height: 5),
+                const SizedBox(height: 7),
                 CustomListTile(
                   changeColor: false,
-
                   leadingIcon: Icons.workspace_premium,
                   listTitleText: TextString.profileUpgradeUserStatusText,
                   onTap: () {},
                 ),
-                const SizedBox(height: 5),
+                const SizedBox(height: 7),
                 CustomListTile(
                   changeColor: false,
                   leadingIcon: Icons.info,
@@ -66,7 +66,7 @@ class ProfileScreen extends StatelessWidget {
                     context.go(AppRouterConstant.aboutAppRoutePath);
                   },
                 ),
-                const SizedBox(height: 5),
+                const SizedBox(height: 7),
                 CustomListTile(
                   changeColor: false,
                   leadingIcon: Icons.help,
@@ -75,7 +75,7 @@ class ProfileScreen extends StatelessWidget {
                     context.go(AppRouterConstant.helpRoutePath);
                   },
                 ),
-                const SizedBox(height: 5),
+                const SizedBox(height: 7),
                 CustomListTile(
                   changeColor: false,
                   leadingIcon: Icons.share,
@@ -84,7 +84,7 @@ class ProfileScreen extends StatelessWidget {
                     HelperFunctions.shareApp(context);
                   },
                 ),
-                const SizedBox(height: 5),
+                const SizedBox(height: 7),
 
                 CustomListTile(
                   changeColor: true,
