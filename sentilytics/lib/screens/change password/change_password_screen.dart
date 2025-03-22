@@ -70,7 +70,10 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
               AuthButton(
                 text: TextString.changePasswordButtonText,
                 onTap: () {
-                  if (globalKey.currentState!.validate()) {}
+                  if (globalKey.currentState!.validate()) {
+                    currentPasswordTextController.clear();
+                    newPasswordTextController.clear();
+                  }
                 },
               ),
             ],

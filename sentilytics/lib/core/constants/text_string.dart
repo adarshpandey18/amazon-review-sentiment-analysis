@@ -60,6 +60,10 @@ class TextString {
   static String currentPasswordLabel = 'Enter your current password';
   static String newPasswordLabel = 'Enter your new password';
   static String changePasswordButtonText = 'Change Password';
+
+  // ============================= CHANGE NAME ==========================================================
+  static String changeNameLabelText = 'Enter your new name';
+  static String changeNameButton = 'Change Name';
   // ===================================== UTILS ==================================================
   static String urlLaunchErrorMessage = 'Unable to launch the link';
 }

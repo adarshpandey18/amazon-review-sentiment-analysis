@@ -54,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: DoubleTextHeading(
                     firstText: TextString.homeGreetingText,
                     secondText: dbProvider.userName,
-                   ),
+                  ),
                 ),
                 FutureBuilder(
                   future: dbProvider.checkUserStatus(
@@ -104,7 +104,9 @@ class _HomeScreenState extends State<HomeScreen> {
             AuthButton(
               text: TextString.homeLinkButtonText,
               onTap: () {
-                if (_formKey.currentState!.validate()) {}
+                if (_formKey.currentState!.validate()) {
+                  _linkTextController.clear();
+                }
               },
             ),
           ],

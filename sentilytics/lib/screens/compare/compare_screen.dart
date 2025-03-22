@@ -101,6 +101,8 @@ class _CompareScreenState extends State<CompareScreen> {
                           text: TextString.compareProductButtonText,
                           onTap: () {
                             if (_globalKey.currentState!.validate()) {
+                              _firstLinkController.clear();
+                              _secondLinkController.clear();
                             } else {
                               showTopSnackBar(
                                 Overlay.of(context),
