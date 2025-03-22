@@ -69,6 +69,7 @@ class AuthService {
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
       final GoogleSignInAuthentication? googleAuth =
           await googleUser?.authentication;
+
       final credential = GoogleAuthProvider.credential(
         accessToken: googleAuth?.accessToken,
         idToken: googleAuth?.idToken,
@@ -115,6 +116,39 @@ class AuthService {
       AuthErrorDialog.showErrorDialog(
         context,
         e.message ?? "An unknown error occurred.",
+      );
+    }
+  }
+  
+  // Change Password
+  Future<void> changePassword(
+    String currentPassword,
+    String newPassword,
+    BuildContext context,
+  ) async {
+    try {
+      User? user = FirebaseAuth.instance.currentUser;
+      if (user != null) {
+        AuthCredential credential = EmailAuthProvider.credential(
+          email: user.email!,
+          password: currentPassword,
+        );
+        await user.reauthenticateWithCredential(credential);
+        await user.updatePassword(newPassword);
+        showTopSnackBar(
+          Overlay.of(context),
+          CustomSnackBar.success(message: 'Password changed successfully'),
+        );
+      } else {
+        showTopSnackBar(
+          Overlay.of(context),
+          CustomSnackBar.info(message: 'User not found'),
+        );
+      }
+    } on FirebaseAuthException catch (e) {
+      AuthErrorDialog.showErrorDialog(
+        context,
+        e.message ?? 'An unknown error occurred.',
       );
     }
   }

@@ -1,7 +1,9 @@
 {
+    "files.exclude": {
+        "**/*.freezed.dart": true,
+        "**/*.g.dart": true
+    },
     "cSpell.words": [
-        "Cupertino",
-        "firestore",
-        "Sentilytics"
+        "sentilytics"
     ]
 }

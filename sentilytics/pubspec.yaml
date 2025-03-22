@@ -50,6 +50,8 @@ dependencies:
   dot_navigation_bar: ^1.0.2
   google_sign_in: ^6.3.0
   flutter_native_splash: ^2.4.5
+  url_launcher: ^6.3.1
+  share_plus: ^10.1.4
 
 dev_dependencies:
   flutter_test:

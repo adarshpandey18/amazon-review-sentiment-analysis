@@ -42,6 +42,20 @@ class DatabaseService {
     }
   }
 
+  Future<void> changeUsername(String uid, BuildContext context) async {
+    try {
+      await _firestore.collection('users').doc(uid).update({
+        'premiumUser': true,
+        'upgradedAt': FieldValue.serverTimestamp(),
+      });
+    } on FirebaseException catch (e) {
+      AuthErrorDialog.showErrorDialog(
+        context,
+        e.message ?? "Error upgrading user.",
+      );
+    }
+  }
+
   Future<String?> getName(String uid, BuildContext context) async {
     try {
       var docSnapshot = await _firestore.collection('users').doc(uid).get();

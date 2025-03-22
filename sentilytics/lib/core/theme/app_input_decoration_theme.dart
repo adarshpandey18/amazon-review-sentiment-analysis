@@ -64,13 +64,13 @@ class AppInputDecorationTheme {
     // Default border
     border: OutlineInputBorder(
       borderRadius: BorderRadius.circular(17.6),
-      borderSide: const BorderSide(color: Colors.white),
+      borderSide: const BorderSide(color: Colors.grey),
     ),
 
     // Enabled border
     enabledBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(17.6),
-      borderSide: const BorderSide(color: Colors.white),
+      borderSide: const BorderSide(color: Colors.grey),
     ),
 
     // Focused border (when field is clicked)

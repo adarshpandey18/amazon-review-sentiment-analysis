@@ -184,7 +184,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ),
                       const SizedBox(height: 9.2),
                       ImageButton(
-                        url: ImageString.googleButtonImageLink,
+                        imagePath: ImageString.googleButtonImageLink,
                         buttonText: TextString.googleButtonText,
                         onTap: () {
                           authProvider.signInWithGoogle(context);
@@ -192,7 +192,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ),
                       const SizedBox(height: 13),
                       ImageButton(
-                        url: ImageString.facebookButtonImageLink,
+                        imagePath: ImageString.facebookButtonImageLink,
                         buttonText: TextString.facebookButtonText,
                         onTap: () {},
                       ),

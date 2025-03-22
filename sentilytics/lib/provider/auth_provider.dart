@@ -87,6 +87,20 @@ class AppAuthProvider extends ChangeNotifier {
     notifyListeners();
     await _authService.signOut(context);
     isLoading = false;
+
+    notifyListeners();
+  }
+
+  // Forgot Password
+  Future<void> forgotPassword(
+    String currentPassword,
+    String newPassword,
+    BuildContext context,
+  ) async {
+    isLoading = true;
+    notifyListeners();
+    await _authService.changePassword(currentPassword, newPassword, context);
+    isLoading = false;
     notifyListeners();
   }
 }

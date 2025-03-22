@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 
 class ImageButton extends StatelessWidget {
   const ImageButton({
     super.key,
-    required this.url,
+
     required this.buttonText,
     required this.onTap,
+    required this.imagePath,
   });
 
-  final String url;
+  final String imagePath;
   final String buttonText;
   final VoidCallback onTap;
 
@@ -19,7 +19,7 @@ class ImageButton extends StatelessWidget {
       width: double.infinity,
       child: ElevatedButton.icon(
         onPressed: onTap,
-        icon: Lottie.network(url, width: 28, height: 28, repeat: true),
+        icon: Image.asset(imagePath, width: 28, height: 28),
         label: Text(
           buttonText,
           style: Theme.of(context).textTheme.bodyMedium?.copyWith(

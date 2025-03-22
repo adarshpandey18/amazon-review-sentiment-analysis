@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => DbProvider()),
       ],
       child: MaterialApp.router(
+        
         debugShowCheckedModeBanner: false,
         debugShowMaterialGrid: false,
         themeMode: ThemeMode.system,

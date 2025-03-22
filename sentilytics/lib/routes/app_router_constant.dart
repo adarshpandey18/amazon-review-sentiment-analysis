@@ -11,6 +11,8 @@ class AppRouterConstant {
   static final String historyRouteName = 'History';
   static final String profileRouteName = 'Profile';
   static final String bottomAppBarRouteName = 'BottomAppBar';
+  static final String aboutRouteName = 'About';
+  static final String helpRouteName = 'Help';
 
   // Route paths
   static final String authWrapperRoutePath = '/authWrapper';
@@ -23,4 +25,6 @@ class AppRouterConstant {
   static final String historyRoutePath = '/history';
   static final String profileRoutePath = '/profile';
   static final String bottomAppBarRoutePath = '/bottomAppBar';
+  static final String aboutAppRoutePath = '/about';
+  static final String helpRoutePath = '/help';
 }

@@ -42,15 +42,20 @@ class TextString {
   static String firstProductText = 'Enter first product link';
   static String secondProductText = 'Enter second product link';
   static String compareProductButtonText = 'Compare Products';
+  static String comparisonErrorMessage = 'An error occurred';
   // ======================================= HISTORY ===============================================
-  static String historyTitle = 'History';
+  static String historyFirstText = 'View all your';
+  static String historySecondText = 'History';
   // ======================================= PROFILE ===============================================
   static String profileTitle = 'Profile';
-  static String changeNameText = 'Change Name';
-  static String changePasswordText = 'Change Password';
-  static String upgradeUserStatusText = 'Get Premium';
-  static String aboutText = 'About';
-  static String helpText = 'Help';
-  static String shareAppText = 'Share App';
-  static String signOutText = 'Sign Out';
+  static String profileChangeNameText = 'Change Name';
+  static String profileChangePasswordText = 'Change Password';
+  static String profileUpgradeUserStatusText = 'Get Premium';
+  static String profileAboutText = 'About';
+  static String profileHelpText = 'Help';
+  static String profileShareAppText = 'Share App';
+  static String profileSignOutText = 'Sign Out';
+
+  // ===================================== UTILS ==================================================
+  static String urlLaunchErrorMessage = 'Unable to launch the link';
 }

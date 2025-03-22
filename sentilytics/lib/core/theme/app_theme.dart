@@ -29,7 +29,6 @@ class AppTheme {
     inputDecorationTheme: AppInputDecorationTheme.lightInputDecorationTheme,
     actionIconTheme: AppActionIconTheme.lightActionIconTheme,
     textTheme: AppTextTheme.lightTextTheme,
-    
   );
 
   // Dark Theme
@@ -50,7 +49,7 @@ class AppTheme {
     fontFamily: GoogleFonts.poppins().fontFamily,
     appBarTheme: CustomAppBarTheme.darkAppBarTheme,
     elevatedButtonTheme: AppElevatedButtonTheme.darkElevatedButtonTheme,
-    inputDecorationTheme: AppInputDecorationTheme.lightInputDecorationTheme,
+    inputDecorationTheme: AppInputDecorationTheme.darkInputDecorationTheme,
     actionIconTheme: AppActionIconTheme.darkActionIconTheme,
     textTheme: AppTextTheme.darkTextTheme,
   );

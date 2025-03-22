@@ -39,6 +39,7 @@ class _AuthTextFormFieldState extends State<AuthTextFormField> {
       cursorOpacityAnimates: true,
       obscureText: widget.isPassword ? !showPassword : false,
       decoration: InputDecoration(
+       
         contentPadding: EdgeInsets.symmetric(vertical: 19),
         prefixIcon: Icon(
           widget.prefixIconData,

@@ -2,7 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sentilytics/core/constants/text_string.dart';
 import 'package:sentilytics/provider/db_provider.dart';
+import 'package:sentilytics/widget/double_text_heading.dart';
 import 'package:sentilytics/widget/get_premium_button.dart';
 
 class HistoryScreen extends StatelessWidget {
@@ -26,7 +28,17 @@ class HistoryScreen extends StatelessWidget {
         bool isPremium = snapshot.data ?? false;
 
         return isPremium
-            ? Center(child: Text('History'))
+            ? SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  DoubleTextHeading(
+                    firstText: TextString.historyFirstText,
+                    secondText: TextString.historySecondText,
+                  ),
+                ],
+              ),
+            )
             : Center(
               child: GetPremiumButton(
                 onTap: () {
