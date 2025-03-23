@@ -37,6 +37,10 @@ class _BottomAppBarScreenState extends State<BottomAppBarScreen> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        showUnselectedLabels: false,
+        iconSize: 28,
+        enableFeedback: true,
+
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
         type: BottomNavigationBarType.fixed,

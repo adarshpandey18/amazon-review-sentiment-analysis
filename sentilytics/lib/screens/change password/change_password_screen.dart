@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:sentilytics/core/constants/text_string.dart';
+import 'package:sentilytics/provider/auth_provider.dart';
 import 'package:sentilytics/widget/auth_button.dart';
 import 'package:sentilytics/widget/auth_text_form_field.dart';
 
@@ -31,6 +34,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final authProvider = Provider.of<AppAuthProvider>(context);
     return Scaffold(
       appBar: AppBar(title: Text(TextString.profileChangePasswordText)),
       body: Padding(
@@ -71,6 +75,11 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                 text: TextString.changePasswordButtonText,
                 onTap: () {
                   if (globalKey.currentState!.validate()) {
+                    authProvider.changePassword(
+                      currentPasswordTextController.text,
+                      newPasswordTextController.text,
+                      context,
+                    );
                     currentPasswordTextController.clear();
                     newPasswordTextController.clear();
                   }

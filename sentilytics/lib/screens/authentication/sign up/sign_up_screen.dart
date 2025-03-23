@@ -62,146 +62,144 @@ class _SignUpScreenState extends State<SignUpScreen> {
           child: SingleChildScrollView(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 38),
-              child: Stack(
-                children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      // Name Field
-                      Text(
-                        TextString.nameLabelText,
-                        style: Theme.of(context).textTheme.bodyMedium,
-                      ),
-                      const SizedBox(height: 9.2),
-                      AuthTextFormField(
-                        controller: _nameTextController,
-                        isEmail: false,
-                        isName: true,
-                        isPassword: false,
-                        prefixIconData: Icons.person,
-                      ),
-                      const SizedBox(height: 18),
-
-                      // Email Field
-                      Text(
-                        TextString.emailLabelText,
-                        style: Theme.of(context).textTheme.bodyMedium,
-                      ),
-                      const SizedBox(height: 9.2),
-                      AuthTextFormField(
-                        controller: _emailTextController,
-                        isEmail: true,
-                        isName: false,
-                        isPassword: false,
-                        prefixIconData: Icons.email_rounded,
-                      ),
-                      const SizedBox(height: 18),
-
-                      // Password Field
-                      Text(
-                        TextString.passwordLabelText,
-                        style: Theme.of(context).textTheme.bodyMedium,
-                      ),
-                      const SizedBox(height: 9.2),
-                      AuthTextFormField(
-                        controller: _passwordTextController,
-                        isEmail: false,
-                        isName: false,
-                        isPassword: true,
-                        prefixIconData: Icons.lock,
-                      ),
-                      const SizedBox(height: 18),
-                      //Re Password Field
-                      Text(
-                        TextString.reEnterPasswordLabelText,
-                        style: Theme.of(context).textTheme.bodyMedium,
-                      ),
-                      const SizedBox(height: 9.2),
-                      AuthTextFormField(
-                        controller: _rePasswordTextController,
-                        isEmail: false,
-                        isName: false,
-                        isPassword: true,
-                        prefixIconData: Icons.lock,
-                      ),
-                      const SizedBox(height: 13),
-                      AuthButton(
-                        text: TextString.signUpButtonText,
-                        onTap: () {
-                          if (_formKey.currentState!.validate()) {
-                            try {
-                              if (_passwordTextController.text !=
-                                  _rePasswordTextController.text) {
-                                showTopSnackBar(
-                                  Overlay.of(context),
-                                  CustomSnackBar.info(
-                                    message: 'Password are not same',
-                                  ),
-                                );
-                              } else {
-                                authProvider.signUpWithEmail(
-                                  _nameTextController.text,
-                                  _emailTextController.text,
-                                  _passwordTextController.text,
-                                  context,
-                                );
-                                _nameTextController.text;
-                                _emailTextController.text;
-                                _passwordTextController.text;
-                                _rePasswordTextController;
-                              }
-                            } catch (e) {
-                              showTopSnackBar(
-                                Overlay.of(context),
-                                CustomSnackBar.error(
-                                  message: 'Sign Up Failed : ${e.toString()}',
-                                ),
-                              );
-                            }
-                          }
-                        },
-                      ),
-                      const SizedBox(height: 13),
-                      AuthRichText(
-                        firstText: TextString.signUpFirstRichText,
-                        secondText: TextString.signUpSecondRichText,
-                        onTap: () {
-                          context.go(AppRouterConstant.signInRoutePath);
-                        },
-                      ),
-                      const SizedBox(height: 9.2),
-                      Center(
-                        child: Text(
-                          'or',
-                          style: Theme.of(
-                            context,
-                          ).textTheme.bodyMedium?.copyWith(
-                            color: Colors.grey,
-                            fontWeight: FontWeight.bold,
+              child:
+                  authProvider.isLoading
+                      ? Center(child: CupertinoActivityIndicator())
+                      : Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          // Name Field
+                          Text(
+                            TextString.nameLabelText,
+                            style: Theme.of(context).textTheme.bodyMedium,
                           ),
-                        ),
+                          const SizedBox(height: 9.2),
+                          AuthTextFormField(
+                            controller: _nameTextController,
+                            isEmail: false,
+                            isName: true,
+                            isPassword: false,
+                            prefixIconData: Icons.person,
+                          ),
+                          const SizedBox(height: 18),
+
+                          // Email Field
+                          Text(
+                            TextString.emailLabelText,
+                            style: Theme.of(context).textTheme.bodyMedium,
+                          ),
+                          const SizedBox(height: 9.2),
+                          AuthTextFormField(
+                            controller: _emailTextController,
+                            isEmail: true,
+                            isName: false,
+                            isPassword: false,
+                            prefixIconData: Icons.email_rounded,
+                          ),
+                          const SizedBox(height: 18),
+
+                          // Password Field
+                          Text(
+                            TextString.passwordLabelText,
+                            style: Theme.of(context).textTheme.bodyMedium,
+                          ),
+                          const SizedBox(height: 9.2),
+                          AuthTextFormField(
+                            controller: _passwordTextController,
+                            isEmail: false,
+                            isName: false,
+                            isPassword: true,
+                            prefixIconData: Icons.lock,
+                          ),
+                          const SizedBox(height: 18),
+                          //Re Password Field
+                          Text(
+                            TextString.reEnterPasswordLabelText,
+                            style: Theme.of(context).textTheme.bodyMedium,
+                          ),
+                          const SizedBox(height: 9.2),
+                          AuthTextFormField(
+                            controller: _rePasswordTextController,
+                            isEmail: false,
+                            isName: false,
+                            isPassword: true,
+                            prefixIconData: Icons.lock,
+                          ),
+                          const SizedBox(height: 13),
+                          AuthButton(
+                            text: TextString.signUpButtonText,
+                            onTap: () {
+                              if (_formKey.currentState!.validate()) {
+                                try {
+                                  if (_passwordTextController.text !=
+                                      _rePasswordTextController.text) {
+                                    showTopSnackBar(
+                                      Overlay.of(context),
+                                      CustomSnackBar.info(
+                                        message: 'Password are not same',
+                                      ),
+                                    );
+                                  } else {
+                                    authProvider.signUpWithEmail(
+                                      _nameTextController.text,
+                                      _emailTextController.text,
+                                      _passwordTextController.text,
+                                      context,
+                                    );
+                                    _nameTextController.text;
+                                    _emailTextController.text;
+                                    _passwordTextController.text;
+                                    _rePasswordTextController;
+                                  }
+                                } catch (e) {
+                                  showTopSnackBar(
+                                    Overlay.of(context),
+                                    CustomSnackBar.error(
+                                      message:
+                                          'Sign Up Failed : ${e.toString()}',
+                                    ),
+                                  );
+                                }
+                              }
+                            },
+                          ),
+                          const SizedBox(height: 13),
+                          AuthRichText(
+                            firstText: TextString.signUpFirstRichText,
+                            secondText: TextString.signUpSecondRichText,
+                            onTap: () {
+                              context.go(AppRouterConstant.signInRoutePath);
+                            },
+                          ),
+                          const SizedBox(height: 9.2),
+                          Center(
+                            child: Text(
+                              'or',
+                              style: Theme.of(
+                                context,
+                              ).textTheme.bodyMedium?.copyWith(
+                                color: Colors.grey,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 9.2),
+                          ImageButton(
+                            imagePath: ImageString.googleButtonImageLink,
+                            buttonText: TextString.googleButtonText,
+                            onTap: () {
+                              authProvider.signInWithGoogle(context);
+                            },
+                          ),
+                          const SizedBox(height: 13),
+                          ImageButton(
+                            imagePath: ImageString.facebookButtonImageLink,
+                            buttonText: TextString.facebookButtonText,
+                            onTap: () {},
+                          ),
+                        ],
                       ),
-                      const SizedBox(height: 9.2),
-                      ImageButton(
-                        imagePath: ImageString.googleButtonImageLink,
-                        buttonText: TextString.googleButtonText,
-                        onTap: () {
-                          authProvider.signInWithGoogle(context);
-                        },
-                      ),
-                      const SizedBox(height: 13),
-                      ImageButton(
-                        imagePath: ImageString.facebookButtonImageLink,
-                        buttonText: TextString.facebookButtonText,
-                        onTap: () {},
-                      ),
-                    ],
-                  ),
-                  if (authProvider.isLoading)
-                    Center(child: CupertinoActivityIndicator()),
-                ],
-              ),
             ),
           ),
         ),

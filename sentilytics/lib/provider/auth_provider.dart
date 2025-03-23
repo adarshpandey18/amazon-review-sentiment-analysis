@@ -91,8 +91,8 @@ class AppAuthProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  // Forgot Password
-  Future<void> forgotPassword(
+  // Change Password
+  Future<void> changePassword(
     String currentPassword,
     String newPassword,
     BuildContext context,

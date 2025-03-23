@@ -39,7 +39,9 @@ class ProfileScreen extends StatelessWidget {
                   changeColor: false,
                   leadingIcon: Icons.person,
                   listTitleText: TextString.profileChangeNameText,
-                  onTap: () {},
+                  onTap: () {
+                    context.push(AppRouterConstant.changeNameRoutePath);
+                  },
                 ),
                 const SizedBox(height: 7),
                 CustomListTile(
@@ -47,7 +49,7 @@ class ProfileScreen extends StatelessWidget {
                   leadingIcon: Icons.lock,
                   listTitleText: TextString.profileChangePasswordText,
                   onTap: () {
-                    context.go(AppRouterConstant.changePasswordRoutePath);
+                    context.push(AppRouterConstant.changePasswordRoutePath);
                   },
                 ),
                 const SizedBox(height: 7),
@@ -63,7 +65,7 @@ class ProfileScreen extends StatelessWidget {
                   leadingIcon: Icons.info,
                   listTitleText: TextString.profileAboutText,
                   onTap: () {
-                    context.go(AppRouterConstant.aboutAppRoutePath);
+                    context.push(AppRouterConstant.aboutAppRoutePath);
                   },
                 ),
                 const SizedBox(height: 7),
@@ -72,7 +74,7 @@ class ProfileScreen extends StatelessWidget {
                   leadingIcon: Icons.help,
                   listTitleText: TextString.profileHelpText,
                   onTap: () {
-                    context.go(AppRouterConstant.helpRoutePath);
+                    context.push(AppRouterConstant.helpRoutePath);
                   },
                 ),
                 const SizedBox(height: 7),

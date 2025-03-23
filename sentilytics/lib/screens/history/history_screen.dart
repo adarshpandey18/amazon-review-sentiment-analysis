@@ -32,6 +32,7 @@ class HistoryScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  const SizedBox(height: 10),
                   DoubleTextHeading(
                     firstText: TextString.historyFirstText,
                     secondText: TextString.historySecondText,

@@ -62,6 +62,7 @@ class _CompareScreenState extends State<CompareScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    const SizedBox(height: 10),
                     DoubleTextHeading(
                       firstText: TextString.compareFirstText,
                       secondText: TextString.compareSecondText,
@@ -103,13 +104,6 @@ class _CompareScreenState extends State<CompareScreen> {
                             if (_globalKey.currentState!.validate()) {
                               _firstLinkController.clear();
                               _secondLinkController.clear();
-                            } else {
-                              showTopSnackBar(
-                                Overlay.of(context),
-                                CustomSnackBar.error(
-                                  message: TextString.comparisonErrorMessage,
-                                ),
-                              );
                             }
                           },
                         ),
