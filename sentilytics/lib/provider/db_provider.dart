@@ -25,4 +25,9 @@ class DbProvider extends ChangeNotifier {
     bool data = await _dbService.checkUserStatus(uid, context);
     return data;
   }
+
+  changeName(String newName, String uid, BuildContext context) async {
+    await _dbService.changeUsername(newName, uid, context);
+    notifyListeners();
+  }
 }

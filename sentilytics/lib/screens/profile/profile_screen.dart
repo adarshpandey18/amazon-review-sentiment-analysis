@@ -17,88 +17,93 @@ class ProfileScreen extends StatelessWidget {
     final authProvider = Provider.of<AppAuthProvider>(context);
     final dbProvider = Provider.of<DbProvider>(context);
     return SingleChildScrollView(
-      child: Center(
-        child: Column(
-          children: [
-            const SizedBox(height: 10),
-            CircleAvatar(
-              backgroundImage: AssetImage(ImageString.profileImagePath),
-              maxRadius: 70,
-            ),
-            const SizedBox(height: 8),
-            Text(
-              dbProvider.userName,
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
-            const SizedBox(height: 8),
-            Divider(color: Colors.grey),
-            const SizedBox(height: 8),
-            Column(
+      child: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 38.0),
+          child: Center(
+            child: Column(
               children: [
-                CustomListTile(
-                  changeColor: false,
-                  leadingIcon: Icons.person,
-                  listTitleText: TextString.profileChangeNameText,
-                  onTap: () {
-                    context.push(AppRouterConstant.changeNameRoutePath);
-                  },
+                const SizedBox(height: 10),
+                CircleAvatar(
+                  backgroundImage: AssetImage(ImageString.profileImagePath),
+                  maxRadius: 70,
                 ),
-                const SizedBox(height: 7),
-                CustomListTile(
-                  changeColor: false,
-                  leadingIcon: Icons.lock,
-                  listTitleText: TextString.profileChangePasswordText,
-                  onTap: () {
-                    context.push(AppRouterConstant.changePasswordRoutePath);
-                  },
+                const SizedBox(height: 8),
+                Text(
+                  dbProvider.userName,
+                  style: Theme.of(context).textTheme.titleMedium,
                 ),
-                const SizedBox(height: 7),
-                CustomListTile(
-                  changeColor: false,
-                  leadingIcon: Icons.workspace_premium,
-                  listTitleText: TextString.profileUpgradeUserStatusText,
-                  onTap: () {},
-                ),
-                const SizedBox(height: 7),
-                CustomListTile(
-                  changeColor: false,
-                  leadingIcon: Icons.info,
-                  listTitleText: TextString.profileAboutText,
-                  onTap: () {
-                    context.push(AppRouterConstant.aboutAppRoutePath);
-                  },
-                ),
-                const SizedBox(height: 7),
-                CustomListTile(
-                  changeColor: false,
-                  leadingIcon: Icons.help,
-                  listTitleText: TextString.profileHelpText,
-                  onTap: () {
-                    context.push(AppRouterConstant.helpRoutePath);
-                  },
-                ),
-                const SizedBox(height: 7),
-                CustomListTile(
-                  changeColor: false,
-                  leadingIcon: Icons.share,
-                  listTitleText: TextString.profileShareAppText,
-                  onTap: () {
-                    HelperFunctions.shareApp(context);
-                  },
-                ),
-                const SizedBox(height: 7),
+                const SizedBox(height: 8),
+                Divider(color: Colors.grey),
+                const SizedBox(height: 8),
+                Column(
+                  children: [
+                    CustomListTile(
+                      changeColor: false,
+                      leadingIcon: Icons.person,
+                      listTitleText: TextString.profileChangeNameText,
+                      onTap: () {
+                        context.push(AppRouterConstant.changeNameRoutePath);
+                      },
+                    ),
+                    const SizedBox(height: 7),
+                    CustomListTile(
+                      changeColor: false,
+                      leadingIcon: Icons.lock,
+                      listTitleText: TextString.profileChangePasswordText,
+                      onTap: () {
+                        context.push(AppRouterConstant.changePasswordRoutePath);
+                      },
+                    ),
+                    const SizedBox(height: 7),
+                    CustomListTile(
+                      changeColor: false,
+                      leadingIcon: Icons.workspace_premium,
+                      listTitleText: TextString.profileUpgradeUserStatusText,
+                      onTap: () {},
+                    ),
+                    const SizedBox(height: 7),
+                    CustomListTile(
+                      changeColor: false,
+                      leadingIcon: Icons.info,
+                      listTitleText: TextString.profileAboutText,
+                      onTap: () {
+                        context.push(AppRouterConstant.aboutAppRoutePath);
+                      },
+                    ),
+                    const SizedBox(height: 7),
+                    CustomListTile(
+                      changeColor: false,
+                      leadingIcon: Icons.help,
+                      listTitleText: TextString.profileHelpText,
+                      onTap: () {
+                        context.push(AppRouterConstant.helpRoutePath);
+                      },
+                    ),
+                    const SizedBox(height: 7),
+                    CustomListTile(
+                      changeColor: false,
+                      leadingIcon: Icons.share,
+                      listTitleText: TextString.profileShareAppText,
+                      onTap: () {
+                        HelperFunctions.shareApp(context);
+                      },
+                    ),
+                    const SizedBox(height: 7),
 
-                CustomListTile(
-                  changeColor: true,
-                  leadingIcon: Icons.logout,
-                  listTitleText: TextString.profileSignOutText,
-                  onTap: () {
-                    authProvider.signOut(context);
-                  },
+                    CustomListTile(
+                      changeColor: true,
+                      leadingIcon: Icons.logout,
+                      listTitleText: TextString.profileSignOutText,
+                      onTap: () {
+                        authProvider.signOut(context);
+                      },
+                    ),
+                  ],
                 ),
               ],
             ),
-          ],
+          ),
         ),
       ),
     );

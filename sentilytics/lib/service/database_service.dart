@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:sentilytics/widget/auth_error_dialog.dart';
+import 'package:top_snackbar_flutter/custom_snack_bar.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 class DatabaseService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -42,16 +44,18 @@ class DatabaseService {
     }
   }
 
-  Future<void> changeUsername(String uid, BuildContext context) async {
+  Future<void> changeUsername(
+    String newName,
+    String uid,
+    BuildContext context,
+  ) async {
     try {
-      await _firestore.collection('users').doc(uid).update({
-        'premiumUser': true,
-        'upgradedAt': FieldValue.serverTimestamp(),
-      });
+      await _firestore.collection('users').doc(uid).update({'name': newName});
+      showTopSnackBar(Overlay.of(context), CustomSnackBar.success(message: 'Name changed to $newName'));
     } on FirebaseException catch (e) {
       AuthErrorDialog.showErrorDialog(
         context,
-        e.message ?? "Error upgrading user.",
+        e.message ?? "Error changing name.",
       );
     }
   }
@@ -68,7 +72,7 @@ class DatabaseService {
     } on FirebaseException catch (e) {
       AuthErrorDialog.showErrorDialog(
         context,
-        e.message ?? "Error upgrading user.",
+        e.message ?? "Error getting name.",
       );
     }
     return null;

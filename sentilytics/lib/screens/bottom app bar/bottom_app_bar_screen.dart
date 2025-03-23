@@ -30,12 +30,7 @@ class _BottomAppBarScreenState extends State<BottomAppBarScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 38.0),
-          child: _screens[_selectedIndex],
-        ),
-      ),
+      body: _screens[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         showUnselectedLabels: false,
         iconSize: 28,

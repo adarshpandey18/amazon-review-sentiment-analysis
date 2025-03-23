@@ -31,6 +31,8 @@ class AboutScreen extends StatelessWidget {
               textAlign: TextAlign.justify,
               style: Theme.of(context).textTheme.bodySmall,
             ),
+            const SizedBox(height: 13),
+            Row(children: [Icon(Icons.call), Icon(Icons.email)]),
           ],
         ),
       ),

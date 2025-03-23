@@ -72,8 +72,6 @@ class HelperFunctions {
 
   static void _showSnackbar(BuildContext context, Widget snackBar) {
     final overlay = Overlay.of(context);
-    if (overlay != null) {
-      showTopSnackBar(overlay, snackBar);
-    }
+    showTopSnackBar(overlay, snackBar);
   }
 }

@@ -36,6 +36,7 @@ class TextString {
   // ======================================== HOME =================================================
   static String homeGreetingText = 'Hey,';
   static String homeLinkButtonText = 'Get Analysis';
+  static String homeTextFieldLabelText = 'Enter product link';
   // ======================================= COMPARE ===============================================
   static String compareFirstText = 'Compare Product';
   static String compareSecondText = 'Side by Side';
