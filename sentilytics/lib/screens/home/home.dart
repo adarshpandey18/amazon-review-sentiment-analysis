@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -51,7 +49,6 @@ class _HomeScreenState extends State<HomeScreen> {
     _loadAd();
   }
 
-  /// Loads a banner ad.
   void _loadAd() {
     final bannerAd = BannerAd(
       size: adSize,

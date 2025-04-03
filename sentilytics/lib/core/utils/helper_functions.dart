@@ -7,6 +7,7 @@ import 'package:sentilytics/core/constants/text_string.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HelperFunctions {
   static Future<void> shareApp(BuildContext context) async {
@@ -74,5 +75,17 @@ class HelperFunctions {
     final overlay = Overlay.of(context);
     showTopSnackBar(overlay, snackBar);
   }
-  
+
+  static Future<void> launchUrlLink(String url, BuildContext context) async {
+    Uri uri = Uri.parse(url);
+
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri);
+    } else {
+      _showSnackbar(
+        context,
+        CustomSnackBar.error(message: 'Couldn\'t launch Url'),
+      );
+    }
+  }
 }

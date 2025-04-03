@@ -6,6 +6,9 @@ class TextString {
   // App Description
   static String appDescription =
       'Sentilytics is an AI-powered tool that extracts product reviews from Amazon and performs sentiment analysis to provide deep insights into customer opinions. It helps users quickly identify trends, positives, and negatives of a product, enabling smarter purchasing decisions. Perfect for buyers, sellers, and researchers looking to analyze real consumer feedback effortlessly.';
+  static String aboutPhoneNumber = 'tel:9370291694';
+  static String aboutEmailId = 'mailto:itsadarshvijaypandey@gmail.com';
+  static String whatsappChat = 'https://wa.me/9370291694';
 
   // ======================================== AUTHENTICATION =================================================
   static String signInAppBarTitle = 'Sign In';

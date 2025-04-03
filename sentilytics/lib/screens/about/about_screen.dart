@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sentilytics/core/constants/image_string.dart';
 import 'package:sentilytics/core/constants/text_string.dart';
+import 'package:sentilytics/core/utils/helper_functions.dart';
 
 class AboutScreen extends StatelessWidget {
   const AboutScreen({super.key});
@@ -32,7 +33,36 @@ class AboutScreen extends StatelessWidget {
               style: Theme.of(context).textTheme.bodySmall,
             ),
             const SizedBox(height: 13),
-            Row(children: [Icon(Icons.call), Icon(Icons.email)]),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                IconButton(
+                  onPressed:
+                      () => HelperFunctions.launchUrlLink(
+                        TextString.aboutPhoneNumber,
+                        context,
+                      ),
+                  icon: Icon(Icons.call),
+                ),
+                IconButton(
+                  onPressed:
+                      () => HelperFunctions.launchUrlLink(
+                        TextString.aboutEmailId,
+                        context,
+                      ),
+                  icon: Icon(Icons.email),
+                ),
+                IconButton(
+                  onPressed:
+                      () => HelperFunctions.launchUrlLink(
+                        TextString.whatsappChat,
+                        context,
+                      ),
+                  icon: Icon(Icons.chat),
+                ),
+              ],
+            ),
           ],
         ),
       ),
