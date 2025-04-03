@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:sentilytics/core/constants/image_string.dart';
@@ -13,18 +16,29 @@ import 'package:sentilytics/widget/get_premium_button.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
   late TextEditingController _linkTextController;
-  late GlobalKey<FormState> _formKey;
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  late AdSize adSize = AdSize.banner;
+  BannerAd? _bannerAd;
+  final String adUnitId =
+      'ca-app-pub-3940256099942544/6300978111'; // Test Banner Ad ID
+
+  // final String adUnitId =
+  //     Platform.isAndroid
+  //         ? 'ca-app-pub-4686056747047135/9963539365'
+  //         : 'ca-app-pub-4686056747047135/8073966527';
+
   @override
   void initState() {
     super.initState();
     _linkTextController = TextEditingController();
-    _formKey = GlobalKey<FormState>();
     final user = FirebaseAuth.instance.currentUser;
     if (user != null) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -34,6 +48,34 @@ class _HomeScreenState extends State<HomeScreen> {
         ).getName(user.uid, context);
       });
     }
+    _loadAd();
+  }
+
+  /// Loads a banner ad.
+  void _loadAd() {
+    final bannerAd = BannerAd(
+      size: adSize,
+      adUnitId: adUnitId,
+      request: const AdRequest(),
+      listener: BannerAdListener(
+        onAdLoaded: (ad) {
+          if (!mounted) {
+            ad.dispose();
+            return;
+          }
+          debugPrint('BannerAd loaded successfully');
+          setState(() {
+            _bannerAd = ad as BannerAd;
+          });
+        },
+        onAdFailedToLoad: (ad, error) {
+          debugPrint('BannerAd failed to load: $error');
+          ad.dispose();
+        },
+      ),
+    );
+    debugPrint("Loading Banner Ad with ID: $adUnitId");
+    bannerAd.load();
   }
 
   @override
@@ -59,26 +101,22 @@ class _HomeScreenState extends State<HomeScreen> {
                         secondText: dbProvider.userName,
                       ),
                     ),
-                    FutureBuilder(
+                    FutureBuilder<bool>(
                       future: dbProvider.checkUserStatus(
                         FirebaseAuth.instance.currentUser!.uid,
                         context,
                       ),
                       builder: (context, snapshot) {
-                        bool isPremium = false;
-                        if (snapshot.data == null) {
-                          isPremium = true;
-                        } else {
-                          isPremium = snapshot.data ?? false;
-                        }
-
                         if (snapshot.connectionState ==
                             ConnectionState.waiting) {
-                          return CupertinoActivityIndicator();
+                          return const CupertinoActivityIndicator();
                         }
                         if (snapshot.hasError) {
-                          return Icon(Icons.error);
+                          return const Icon(Icons.error);
                         }
+
+                        bool isPremium = snapshot.data ?? false;
+
                         return isPremium
                             ? Container()
                             : Expanded(
@@ -120,6 +158,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     }
                   },
                 ),
+                const SizedBox(height: 10),
+                _bannerAd != null
+                    ? SizedBox(height: 50, child: AdWidget(ad: _bannerAd!))
+                    : const SizedBox.shrink(),
               ],
             ),
           ),

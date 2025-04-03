@@ -74,4 +74,5 @@ class HelperFunctions {
     final overlay = Overlay.of(context);
     showTopSnackBar(overlay, snackBar);
   }
+  
 }
