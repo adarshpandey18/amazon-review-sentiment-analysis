@@ -60,7 +60,7 @@ class AboutScreen extends StatelessWidget {
                         context,
                       ),
                   icon: Icon(Icons.chat),
-                ),
+                ),  
               ],
             ),
           ],

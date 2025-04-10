@@ -55,6 +55,7 @@ dependencies:
   path_provider: ^2.1.5
   blur: ^4.0.0
   google_mobile_ads: ^5.3.1
+  razorpay_flutter: ^1.4.0
 
 dev_dependencies:
   flutter_test:
