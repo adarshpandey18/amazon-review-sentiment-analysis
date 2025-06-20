@@ -5,9 +5,8 @@ import 'package:sentilytics/core/constants/text_string.dart';
 import 'package:sentilytics/provider/payment_provider.dart';
 
 class GetPremiumCard extends StatefulWidget {
-  final VoidCallback onTap;
 
-  const GetPremiumCard({super.key, required this.onTap});
+  const GetPremiumCard({super.key});
 
   @override
   State<GetPremiumCard> createState() => _GetPremiumCardState();

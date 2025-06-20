@@ -59,7 +59,7 @@ class HistoryScreen extends StatelessWidget {
               Center(
                 child: Padding(
                   padding: const EdgeInsets.all(38.0),
-                  child: GetPremiumCard(onTap: () {}),
+                  child: GetPremiumCard(),
                 ),
               ),
           ],

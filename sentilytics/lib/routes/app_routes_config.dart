@@ -18,7 +18,7 @@ class AppRoutesConfig {
     routes: [
       GoRoute(
         path: AppRouterConstant.authWrapperRoutePath,
-        name: AppRouterConstant.authWrapperRoutePath,
+        name: AppRouterConstant.authWrapperRouteName,
         builder: (context, state) => AuthWrapper(),
       ),
       GoRoute(

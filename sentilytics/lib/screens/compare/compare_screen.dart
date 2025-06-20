@@ -129,7 +129,7 @@ class _CompareScreenState extends State<CompareScreen> {
                 Center(
                   child: Padding(
                     padding: const EdgeInsets.all(38.0),
-                    child: GetPremiumCard(onTap: () {}),
+                    child: GetPremiumCard(),
                   ),
                 ),
             ],
