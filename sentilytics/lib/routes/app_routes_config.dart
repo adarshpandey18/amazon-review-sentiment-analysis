@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:sentilytics/model/AnalysisModel.dart';
 import 'package:sentilytics/routes/app_router_constant.dart';
 import 'package:sentilytics/screens/about/about_screen.dart';
 import 'package:sentilytics/screens/authentication/auth_wrapper.dart';
@@ -10,6 +11,7 @@ import 'package:sentilytics/screens/change%20name/change_name_screen.dart';
 import 'package:sentilytics/screens/change%20password/change_password_screen.dart';
 import 'package:sentilytics/screens/error/app_error_screen.dart';
 import 'package:sentilytics/screens/help/help_screen.dart';
+import 'package:sentilytics/screens/result/result_screen.dart';
 
 class AppRoutesConfig {
   static final GoRouter goRouter = GoRouter(
@@ -62,6 +64,14 @@ class AppRoutesConfig {
         path: AppRouterConstant.changeNameRoutePath,
         name: AppRouterConstant.changeNameRouteName,
         builder: (context, state) => ChangeNameScreen(),
+      ),
+      GoRoute(
+        path: AppRouterConstant.resultRoutePath,
+        name: AppRouterConstant.resultRouteName,
+        builder: (context, state) {
+          final analysismodel = state.extra as Analysismodel;
+          return ResultScreen(analysismodel: analysismodel);
+        },
       ),
     ],
   );

@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:sentilytics/core/constants/text_string.dart';
 import 'package:sentilytics/core/theme/app_theme.dart';
 import 'package:sentilytics/firebase_options.dart';
+import 'package:sentilytics/provider/analysis_provider.dart';
 import 'package:sentilytics/provider/auth_provider.dart';
 import 'package:sentilytics/provider/db_provider.dart';
 import 'package:sentilytics/provider/payment_provider.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => AppAuthProvider()),
         ChangeNotifierProvider(create: (context) => DbProvider()),
         ChangeNotifierProvider(create: (context) => PaymentProvider()),
+        ChangeNotifierProvider(create: (context) => AnalysisProvider()),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,

@@ -6,6 +6,7 @@ import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:sentilytics/core/constants/image_string.dart';
 import 'package:sentilytics/core/constants/text_string.dart';
+import 'package:sentilytics/provider/analysis_provider.dart';
 import 'package:sentilytics/provider/db_provider.dart';
 import 'package:sentilytics/widget/auth_button.dart';
 import 'package:sentilytics/widget/auth_text_form_field.dart';
@@ -78,6 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final dbProvider = Provider.of<DbProvider>(context);
+    final analysisProvider = Provider.of<AnalysisProvider>(context);
     return Form(
       key: _formKey,
       child: Padding(
@@ -151,6 +153,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   text: TextString.homeLinkButtonText,
                   onTap: () {
                     if (_formKey.currentState!.validate()) {
+                      analysisProvider.getAnalysis(
+                        _linkTextController.text,
+                        context,
+                      );
                       _linkTextController.clear();
                     }
                   },
