@@ -11,6 +11,7 @@ import 'package:sentilytics/screens/change%20name/change_name_screen.dart';
 import 'package:sentilytics/screens/change%20password/change_password_screen.dart';
 import 'package:sentilytics/screens/error/app_error_screen.dart';
 import 'package:sentilytics/screens/help/help_screen.dart';
+import 'package:sentilytics/screens/result/comparison_result_screen.dart';
 import 'package:sentilytics/screens/result/result_screen.dart';
 
 class AppRoutesConfig {
@@ -71,6 +72,17 @@ class AppRoutesConfig {
         builder: (context, state) {
           final analysismodel = state.extra as Analysismodel;
           return ResultScreen(analysismodel: analysismodel);
+        },
+      ),
+      GoRoute(
+        path: AppRouterConstant.compareResulPath,
+        name: AppRouterConstant.compareResultScreenName,
+        builder: (context, state) {
+          final data = state.extra as Map<String, dynamic>;
+          return ComparisonResultScreen(
+            model1: data['model1'],
+            model2: data['model2'],
+          );
         },
       ),
     ],

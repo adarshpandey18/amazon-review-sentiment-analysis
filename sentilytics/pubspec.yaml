@@ -56,6 +56,7 @@ dependencies:
   blur: ^4.0.0
   google_mobile_ads: ^5.3.1
   razorpay_flutter: ^1.4.0
+  flutter_animate: ^4.5.2
 
 dev_dependencies:
   flutter_test:
