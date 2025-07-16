@@ -16,7 +16,7 @@ public class Review {
     private String review_author_url;
     private String review_author_avatar;
     private List<String> review_images;
-    private String review_video;
+//    private String review_video;
     private String review_date;
     private boolean is_verified_purchase;
     private String helpful_vote_statement;

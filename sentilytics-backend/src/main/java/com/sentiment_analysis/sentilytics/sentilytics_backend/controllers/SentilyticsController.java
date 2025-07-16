@@ -1,11 +1,14 @@
 package com.sentiment_analysis.sentilytics.sentilytics_backend.controllers;
 
+import com.sentiment_analysis.sentilytics.sentilytics_backend.dto.AnalysisDTO;
 import com.sentiment_analysis.sentilytics.sentilytics_backend.entities.ReviewResponse;
 import com.sentiment_analysis.sentilytics.sentilytics_backend.services.SentilyticsService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 
 @RestController
 @RequestMapping("/api/sentilytics")
@@ -18,8 +21,10 @@ public class SentilyticsController {
     }
 
     @GetMapping("/{asin}")
-    public ReviewResponse getReviews(@PathVariable String asin) {
-       return sentilyticsService.getReviews(asin);
+    public ResponseEntity<AnalysisDTO> getAnalysis(@PathVariable String asin) {
+        AnalysisDTO result = sentilyticsService.performSentimentAnalysis(asin);
+        return ResponseEntity.ok(result);
     }
+
 
 }
