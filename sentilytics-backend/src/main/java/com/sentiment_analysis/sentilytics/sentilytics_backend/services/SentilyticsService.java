@@ -94,20 +94,14 @@ public class SentilyticsService {
     }
 
     private int mapSentimentToScore(String sentiment) {
-        switch (sentiment.toLowerCase()) {
-            case "very negative":
-                return 0;
-            case "negative":
-                return 1;
-            case "neutral":
-                return 2;
-            case "positive":
-                return 3;
-            case "very positive":
-                return 4;
-            default:
-                return 2;
-        }
+        return switch (sentiment.toLowerCase()) {
+            case "very negative" -> 0;
+            case "negative" -> 1;
+            case "neutral" -> 2;
+            case "positive" -> 3;
+            case "very positive" -> 4;
+            default -> 2;
+        };
     }
 
     private String overallSentiment(int score) {
