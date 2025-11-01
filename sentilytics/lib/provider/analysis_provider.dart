@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sentilytics/routes/app_router_constant.dart';
-import 'package:sentilytics/screens/change%20name/change_name_screen.dart';
 import 'package:sentilytics/service/analysis_service.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';

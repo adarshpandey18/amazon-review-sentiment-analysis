@@ -6,7 +6,7 @@ import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 class DatabaseService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-
+  
   Future<void> saveUserData(
     String uid,
     String name,

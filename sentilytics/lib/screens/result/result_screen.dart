@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sentilytics/model/AnalysisModel.dart';
+import 'package:sentilytics/routes/app_router_constant.dart';
 
 class ResultScreen extends StatelessWidget {
   final Analysismodel analysismodel;
@@ -43,6 +45,18 @@ class ResultScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey[100],
       appBar: AppBar(
+        actions: [
+          IconButton(
+            onPressed: () {
+              if (context.canPop()) {
+                context.pop();
+              } else {
+                context.go(AppRouterConstant.bottomAppBarRoutePath);
+              }
+            },
+            icon: Icon(Icons.arrow_back),
+          ),
+        ],
         title: const Text("Analysis Result"),
         backgroundColor: sentimentColor,
         centerTitle: true,

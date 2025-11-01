@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sentilytics/model/AnalysisModel.dart';
+import 'package:sentilytics/routes/app_router_constant.dart';
 
 class ComparisonResultScreen extends StatelessWidget {
   final Analysismodel model1;
@@ -104,6 +106,18 @@ class ComparisonResultScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+            onPressed: () {
+              if (context.canPop()) {
+                context.pop();
+              } else {
+                context.go(AppRouterConstant.bottomAppBarRoutePath);
+              }
+            },
+            icon: Icon(Icons.arrow_back),
+          ),
+        ],
         title: const Text("Comparison Result"),
         backgroundColor: Colors.indigo,
         centerTitle: true,
