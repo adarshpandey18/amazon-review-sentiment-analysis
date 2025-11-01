@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
@@ -15,6 +16,7 @@ class GetPremiumButton extends StatefulWidget {
 class _GetPremiumButtonState extends State<GetPremiumButton> {
   late Razorpay _razorpay;
   var options;
+  var uid = FirebaseAuth.instance.currentUser!.uid;
   @override
   void initState() {
     super.initState();
@@ -49,7 +51,7 @@ class _GetPremiumButtonState extends State<GetPremiumButton> {
         context,
         listen: false,
       );
-      paymentProvider.handlePaymentErrorResponse(context);
+      paymentProvider.handlePaymentErrorResponse(uid, context);
     });
 
     _razorpay.on(Razorpay.EVENT_EXTERNAL_WALLET, (

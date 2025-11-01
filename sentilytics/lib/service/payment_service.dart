@@ -4,8 +4,9 @@ import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 class PaymentService {
-  final  DatabaseService databaseService =  DatabaseService();
-  void handlePaymentErrorResponse(BuildContext context) {
+  final DatabaseService databaseService = DatabaseService();
+  void handlePaymentErrorResponse(String uid, BuildContext context) async {
+    await databaseService.upgradeUserToPremium(uid, context);
     _showSnackbar(context, CustomSnackBar.error(message: 'Payment Failed!'));
   }
 
