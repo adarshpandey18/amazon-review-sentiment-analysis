@@ -17,7 +17,8 @@ class _BottomAppBarScreenState extends State<BottomAppBarScreen> {
   final List<Widget> _screens = [
     HomeScreen(),
     CompareScreen(),
-    HistoryScreen(),
+    // backend is pending
+    // HistoryScreen(),
     ProfileScreen(),
   ];
 
@@ -44,7 +45,8 @@ class _BottomAppBarScreenState extends State<BottomAppBarScreen> {
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(icon: Icon(Icons.compare), label: "Compare"),
-          BottomNavigationBarItem(icon: Icon(Icons.history), label: "History"),
+          // backend is pending
+          // BottomNavigationBarItem(icon: Icon(Icons.history), label: "History"),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
         ],
       ),
