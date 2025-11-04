@@ -11,7 +11,7 @@ Built with Flutter for the frontend and Spring Boot for the backend, it's a comp
 | Sign In / Auth | Home & Analysis | Comparison (Premium) |
 | :---: | :---: | :---: |
 | ![Sign In Screen](./screenshots/sign_in.jpg) | ![Home Screen](./screenshots/home.jpg) | ![Comparison Screen](./screenshots/compare.jpg) |
-| **Profile** | **Result Screen** | **Dark Mode** |
+| **Profile** | **Result Screen** | **Comparison (Free)** |
 | ![Profile Screen](./screenshots/profile.jpg) | ![Result Screen](./screenshots/result.png) | ![Comparison (Free)](./screenshots/compare_lock.jpg) |
 
 ---
