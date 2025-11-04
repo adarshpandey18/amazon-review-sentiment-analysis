@@ -29,11 +29,6 @@ class _HomeScreenState extends State<HomeScreen> {
   final String adUnitId =
       'ca-app-pub-3940256099942544/6300978111'; // Test Banner Ad ID
 
-  // final String adUnitId =
-  //     Platform.isAndroid
-  //         ? 'ca-app-pub-4686056747047135/9963539365'
-  //         : 'ca-app-pub-4686056747047135/8073966527';
-
   @override
   void initState() {
     super.initState();
@@ -79,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final dbProvider = Provider.of<DbProvider>(context);
-    final analysisProvider = Provider.of<AnalysisProvider>(context);
+
     return Form(
       key: _formKey,
       child: Padding(
@@ -149,18 +144,29 @@ class _HomeScreenState extends State<HomeScreen> {
                   prefixIconData: Icons.link,
                 ),
                 const SizedBox(height: 13),
-                AuthButton(
-                  text: TextString.homeLinkButtonText,
-                  onTap: () {
-                    if (_formKey.currentState!.validate()) {
-                      analysisProvider.getAnalysis(
-                        _linkTextController.text,
-                        context,
-                      );
-                      _linkTextController.clear();
-                    }
+
+                Consumer<AnalysisProvider>(
+                  builder: (context, provider, _) {
+                    return provider.loading
+                        ? const Padding(
+                          padding: EdgeInsets.all(20),
+                          child: CupertinoActivityIndicator(radius: 16),
+                        )
+                        : AuthButton(
+                          text: TextString.homeLinkButtonText,
+                          onTap: () {
+                            if (_formKey.currentState!.validate()) {
+                              provider.getAnalysis(
+                                _linkTextController.text,
+                                context,
+                              );
+                              _linkTextController.clear();
+                            }
+                          },
+                        );
                   },
                 ),
+
                 const SizedBox(height: 10),
                 _bannerAd != null
                     ? SizedBox(height: 50, child: AdWidget(ad: _bannerAd!))

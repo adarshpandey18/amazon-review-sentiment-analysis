@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sentilytics/screens/compare/compare_screen.dart';
-import 'package:sentilytics/screens/history/history_screen.dart';
 import 'package:sentilytics/screens/home/home.dart';
 import 'package:sentilytics/screens/profile/profile_screen.dart';
 

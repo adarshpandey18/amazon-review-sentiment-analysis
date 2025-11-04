@@ -1,5 +1,5 @@
 import 'package:go_router/go_router.dart';
-import 'package:sentilytics/model/AnalysisModel.dart';
+import 'package:sentilytics/model/analysis_model.dart';
 import 'package:sentilytics/routes/app_router_constant.dart';
 import 'package:sentilytics/screens/about/about_screen.dart';
 import 'package:sentilytics/screens/authentication/auth_wrapper.dart';

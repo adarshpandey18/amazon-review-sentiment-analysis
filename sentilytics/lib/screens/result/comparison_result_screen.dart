@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:sentilytics/model/AnalysisModel.dart';
+import 'package:sentilytics/model/analysis_model.dart';
 import 'package:sentilytics/routes/app_router_constant.dart';
 
 class ComparisonResultScreen extends StatelessWidget {
