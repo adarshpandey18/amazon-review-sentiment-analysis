@@ -8,6 +8,7 @@ import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import edu.stanford.nlp.sentiment.SentimentCoreAnnotations;
 import edu.stanford.nlp.util.CoreMap;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -19,6 +20,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.List;
 import java.util.Properties;
 
+@Slf4j
 @Service
 public class SentilyticsService {
     @Value("${reviews.url.link}")
@@ -38,6 +40,7 @@ public class SentilyticsService {
     }
 
     public AnalysisDTO performSentimentAnalysis(String asin) {
+        log.info("Analysis started");
         ReviewResponse response = getReviews(asin);
         List<Review> reviewList = response.getData().getReviews();
         List<String> reviewComments = reviewList.stream().map(Review::getReview_comment).toList();
